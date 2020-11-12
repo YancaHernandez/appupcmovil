@@ -1,0 +1,3 @@
+export const AUTH_LOGUIN = "AUTH_LOGUIN";
+export const AUTH_LOGUOT = "AUTLOGUOTER";
+export const AUTH_CHANGE_LOGGUED = "AUTH_CHANGE_LOGGUED";
