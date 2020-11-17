@@ -1,13 +1,15 @@
 import { httpClient } from "./index";
 // const entity = "auth";
-const entity = "api/v1/Cuentas";
+const entity = "auth";
 
 export const postLogin = (data) => {
   return new Promise(async (resolve, reject) => {
+    console.log(data)
     httpClient
-      .post(`${entity}/Login`, data)
+      .post(`${entity}/login`, data)
       .then((res) => res.json())
       .then((res) => {
+        console.log(res)
         if (res.token) {
           resolve({ ok: true, data: res });
         } else {

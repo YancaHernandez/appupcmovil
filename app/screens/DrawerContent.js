@@ -12,7 +12,6 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { globalStyle } from "../styles/general";
-import colors from "../styles/colors";
 import authContext from "../context/auth/authContext";
 
 export function DrawerContent(props) {
@@ -26,7 +25,7 @@ export function DrawerContent(props) {
             <View style={{ flexDirection: "row", marginTop: 15 }}>
               <Avatar.Image
                 style={{ resizeMode: "contain" }}
-                source={require("../../assets/img/avatarLogo.png")}
+                source={require("../../assets/img/logoInicioSesion.png")}
                 size={50}
               />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
@@ -82,7 +81,7 @@ export function DrawerContent(props) {
               }}
             />
 
-            <DrawerItem
+            {/* <DrawerItem
               icon={({ color, size }) => (
                 // <FontAwesome5 name="user-tie" size={size} color={color} />
                 <MaterialCommunityIcons
@@ -96,9 +95,9 @@ export function DrawerContent(props) {
               onPress={() => {
                 props.navigation.navigate("ministro");
               }}
-            />
+            /> */}
 
-            <DrawerItem
+            {/* <DrawerItem
               icon={({ color, size }) => (
                 // <Icon name="home-outline" color={color} size={size} />
                 <AntDesign name="infocirlceo" size={size} color={color} />
@@ -108,10 +107,10 @@ export function DrawerContent(props) {
               onPress={() => {
                 props.navigation.navigate("informacionGeneral");
               }}
-            />
+            /> */}
           </Drawer.Section>
 
-          <Drawer.Section>
+          {/* <Drawer.Section>
             <Text style={styles.titleSesion}>Redes sociales</Text>
             <View
               style={[styles.row, { marginLeft: 15, flexDirection: "row" }]}
@@ -190,9 +189,9 @@ export function DrawerContent(props) {
                 </TouchableHighlight>
               </View>
             </View>
-          </Drawer.Section>
+          </Drawer.Section> */}
 
-          <Drawer.Section style={styles.drawerSection}>
+          {/* <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               // icon={({ color, size }) => (
               //   <Icon name="home-outline" color={color} size={size} />
@@ -201,7 +200,7 @@ export function DrawerContent(props) {
               labelStyle={[styles.fontFamily, { color: colors.BUTTON_ACTIVO }]}
               onPress={() => Linking.openURL("https://www.minjusticia.gov.co/")}
             />
-          </Drawer.Section>
+          </Drawer.Section> */}
 
           {/* <Drawer.Section title="Preferences">
             <TouchableRipple

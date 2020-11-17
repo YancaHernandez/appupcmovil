@@ -30,7 +30,6 @@ const AuthState = (props) => {
 
   const login = async (data) => {
     const res = await postLogin(data);
-
     if (res.ok) {
       try {
         await AsyncStorage.setItem("user", JSON.stringify(res.data.user));

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 import { TextInput, Button } from "react-native-paper";
 import { globalStyle } from "../styles/general";
 import colors from "../styles/colors";
 import { table as dataTable } from "../data/Data";
+import tableContext from "../context/tables/tableContext";
 
 const TableForm = ({
   navigation,
@@ -12,9 +13,11 @@ const TableForm = ({
   update,
   setUpdate,
   selectedTable,
+  updateList
 }) => {
   //   const [name, setName] = useState("");
   //   const [capacity, setCapacity] = useState("");
+  const { tables, TABLECREATE, TABLEUPDATE } = useContext(tableContext);
 
   const [table, setTable] = useState({ name: "", capacity: 0 });
 
@@ -28,14 +31,23 @@ const TableForm = ({
     console.log(table);
   }, [selectedTable]);
 
-  const submit = () => {
+  const submit = async () => {
     if (!update) {
       if (table.name.trim() == "" && table.capacity.trim() == "") {
         console.log("Todos los campos son obligatorios");
       } else {
-        // dataTable.push(table);
+        await TABLECREATE(table);
+        // updateList();
         console.log("Mesa registrada correctamente");
       }
+    }else{
+        if (table.name.trim() == "" && table.capacity.trim() == "") {
+          console.log("Todos los campos son obligatorios");
+        } else {
+          await TABLEUPDATE({data: table, id: table._id})
+          // updateList();
+          console.log("Mesa editada correctamente");
+        }
     }
     // setVisibleForm(false);
   };

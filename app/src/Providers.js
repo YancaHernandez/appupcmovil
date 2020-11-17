@@ -3,6 +3,7 @@ import * as Font from "expo-font";
 import { View } from "react-native";
 
 import AuthState from "../context/auth/authState";
+import TableState from "../context/tables/tableState";
 import { Provider as PaperProvider } from "react-native-paper";
 
 import { theme } from "../styles/defaultTheme";
@@ -37,11 +38,13 @@ const Providers = () => {
   }
 
   return (
-    <AuthState>
-      <PaperProvider theme={theme}>
-        <Routes />
-      </PaperProvider>
-    </AuthState>
+    <TableState>
+      <AuthState>
+        <PaperProvider theme={theme}>
+          <Routes />
+        </PaperProvider>
+      </AuthState>
+    </TableState>
   );
 };
 
